@@ -2,8 +2,8 @@
 echo "Content-type: text/html"
 echo ""
 echo "<html><head><title>Bash as CGI"
+echo "<meta http-equiv="refresh" content='1'>"
 echo "</title></head><body>"
-
 
 echo "<b>NGINX_ADDR:</b>" $REMOTE_ADDR
 echo "<b>NGINX_PORT:</b>" $REMOTE_PORT
