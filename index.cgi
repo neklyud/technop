@@ -11,6 +11,20 @@ echo "<b>CLIENT_ADDR:</b> " $HTTP_X_REAL_IP
 echo "<b>CLIENT_PORT:</b> " $HTTP_X_FORWARDER_FOR_PORT
 echo "<b>NGINX_VERSION:</b>" $HTTP_X_NGX_VERSION
 
+LAVG1='cut -f1 -d" " /proc/loadavg'
+LAVG5='cut -f2 -d" " /proc/loadavg'
+LAVG15='cut -f3 -d" " /proc/loadavg'
+
+#NCPU=$(lscpu | grep ^CPU\(s\) | awk '{print $2}')
+#WARN=$(echo "$NCPU*0.8" | bc -l)
+#CRIT=$(echo "$NCPU*0.9" | bc -l)
+#pygmentize (){
+#	if [[ $(echo "$1 > $CRIT" | bc) -eq 1]]; then
+#		OUT="<span style='color: red;'>$1</span>"
+#	elif [[ $(echo "$1 > $WARN" | bc) -eq 1]]; then
+#		OUT="<span style='color: red;'>$1</span>"
+#	fi	
+#}
 echo "<h1>Load Average</h1>"
 echo "$(cat /proc/loadavg | awk '{print $1" "$2" "$3}')"
 
